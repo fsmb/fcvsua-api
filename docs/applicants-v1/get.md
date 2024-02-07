@@ -42,7 +42,7 @@ GET {baseUrl}/v1/{board}/applicants/{fid}
 #### Sample Request
 
 ```HTTP
-GET {baseUrl}/v1/me/applicants/999999949
+GET {baseUrl}/v1/me/applicants/999999915
 ```
 
 #### Sample Response
@@ -53,10 +53,11 @@ Status code: 200
 
 ```json
 {
-    "fid": "999999940",
+    "fid": "999999915",
     "application": {
-        "licenseType": "MD",
         "boardName": "Texas Medical Board",
+        "licenseType": "MD",
+        
         "licenseSubtypeDetails": {
           "code": "FULL",
           "description": "Permanent Medical License"
@@ -64,9 +65,9 @@ Status code: 200
     },
     "names": {
         "legalName": {
-            "firstName": "Robert",
-            "middleName": "More",
-            "lastName": "Finaling-Final",
+            "firstName": "Philip",
+            "middleName": "James",
+            "lastName": "Testman",
             "suffix": "Jr"
         }
     },
@@ -74,4 +75,4 @@ Status code: 200
 }
 ```
 
-For more examples go to [samples](/samples/).
+For more examples, go to [samples](/samples/).

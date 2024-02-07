@@ -1,9 +1,9 @@
 # Unified API
 
-FSMB simplifies the licensure process for state boards by providing applicants license portability via UA and primary-source verified information via FCVS. Participating boards can use the unified API to retrieve information about applicants who have submitted to them via the UA and FCVS applications.
+FSMB simplifies the licensure process for state boards by providing applicants license portability via UA and primary-source verified information via FCVS. Participating boards can use the Unified API to retrieve information about applicants who have submitted to them via the UA and FCVS applications.
 
-Refer to the [Getting Started with FSMB APIs](https://github.com/fsmb/api-docs) guide to learn more general information about FSMB APIs, terminology, authentication, FSMB codes and more.
-For more information and to begin using this API, please contact FSMB [here](mailto:fcvs@fsmb.org).
+Refer to the [Getting Started with FSMB APIs](https://github.com/fsmb/api-docs) guide to learn more general information about FSMB APIs - terminology, authentication, error handling, FSMB codes, and more.
+For more information or to begin using this API, please contact FSMB [here](mailto:fcvs@fsmb.org).
 
 - URL
   - Demo: `https://services-fcvsua-demo.fsmb.org`

@@ -34,8 +34,8 @@ Applicant details
 {
     "fid": "999999915",
     "application": {
-        "licenseType": "MD",
         "boardName": "Texas Medical Board",
+        "licenseType": "MD",
         "licenseSubtypeDetails": {
             "code": "FULL",
             "description": "Permanent Medical License"
