@@ -6,6 +6,10 @@ Applicant details
 | - | - | - | - |
 | fid | string (format: digits, len: 9) | Yes | FID of practitioner. |
 | application | [Application](application.md) | Yes | Application information. |
+| fcvsProfileStatus | string ([FcvsProfileStatus](fcvs-profile-status.md)) | Yes | FCVS profile status. |
+| fcvsProfile | [FcvsProfileReport](fcvs-profile-report.md) | No | FCVS profile information, if available. |
+| uaStatus | string ([UaStatus](ua-status.md)) | Yes | UA status. |
+| uaSubmission | [UaSubmission](ua-submission.md) | No | UA submission information, if available. |
 | identity | [Identification](identification.md) | Yes | Identity information. |
 | names | [Names](names.md) | Yes | Names |
 | addresses | [MailingAddresses](mailing-addresses.md) | Yes | Mailing addresses. |
@@ -21,8 +25,6 @@ Applicant details
 | pdc | [PdcReport](pdc/pdc-report.md) | No | PDC information, if available. |
 | ama | [AmaReport](ama/ama-report.md) | No | AMA information, if available. |
 | amaReportStatus | string ([AmaReportStatus](ama/ama-report-status.md)) | Yes | Status of AMA report. |
-| fcvsProfile | [FcvsProfileReport](fcvs/fcvs-profile-report.md) | No | FCVS profile report, if available. |
-| fcvsProfileStatus | string ([FcvsProfileStatus](fcvs/fcvs-profile-status.md)) | Yes | FCVS profile status. |
 | addendum | object | No | | -->
 
 *Note: Any fields marked as deprecated will be removed in a future version of the API. New code should not rely on these fields. Existing code should be updated to use alternative fields.*

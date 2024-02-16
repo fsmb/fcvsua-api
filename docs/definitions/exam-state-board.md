@@ -1,6 +1,6 @@
 # ExamStateBoard
 
-State board for exam
+State exam for board.
 
 | Name | Type | Required | Description |
 | - | - | - | - |
