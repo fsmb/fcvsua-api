@@ -21,6 +21,9 @@ Applicant details
 | licenses | [License](license.md)[] | No | Licenses. |
 | malpractice | [Malpractice](malpractice.md)[] | No | Malpractice information. |
 | activities | [Activity](activity.md)[] | No | Chronology of activity. |
+| npdbReportStatus | string ([NpdbReportStatus](npdb-report-status.md)) | Yes | NPDB report status. |
+| npdbReport | [NpdbReport](npdb-report.md) | No | NPDB report, if available. |
+
 <!-- | pdcReportStatus | string (len: 20) | Yes | Status of PDC report. Refer to [ReportStatus](report-status.md) for possible values. |
 | pdc | [PdcReport](pdc/pdc-report.md) | No | PDC information, if available. |
 | ama | [AmaReport](ama/ama-report.md) | No | AMA information, if available. |
