@@ -16,22 +16,19 @@ Applicant details
 | emailAddresses | [EmailAddresses](email-addresses.md) | Yes | Email addresses. |
 | phones | [Phones](phones.md) | Yes | Phone numbers. |
 | medicalEducation | [MedicalEducationTraining](medical-education-training.md) | Yes | Medical education. |
-| postGraduateTraining | [PostGraduateTraining](post-graduate-training.md) | No | Postgraduate training. |                    
+| postGraduateTraining | [PostGraduateTraining](post-graduate-training.md) | No | Postgraduate training. |
 | exams | [Exam](exam.md)[] | No | Exams. |
 | licenses | [License](license.md)[] | No | Licenses. |
 | malpractice | [Malpractice](malpractice.md)[] | No | Malpractice information. |
 | activities | [Activity](activity.md)[] | No | Chronology of activity. |
 | npdbReportStatus | string ([NpdbReportStatus](npdb-report-status.md)) | Yes | NPDB report status. |
 | npdbReport | [NpdbReport](npdb-report.md) | No | NPDB report, if available. |
-
-<!-- | pdcReportStatus | string (len: 20) | Yes | Status of PDC report. Refer to [ReportStatus](report-status.md) for possible values. |
+| pdcReportStatus | string (len: 20) | Yes | Status of PDC report. Refer to [ReportStatus](report-status.md) for possible values. |
 | pdc | [PdcReport](pdc/pdc-report.md) | No | PDC information, if available. |
-| ama | [AmaReport](ama/ama-report.md) | No | AMA information, if available. |
 | amaReportStatus | string ([AmaReportStatus](ama/ama-report-status.md)) | Yes | Status of AMA report. |
-| addendum | object | No | | -->
+| ama | [AmaReport](ama/ama-report.md) | No | AMA information, if available. |
 
 *Note: Any fields marked as deprecated will be removed in a future version of the API. New code should not rely on these fields. Existing code should be updated to use alternative fields.*
-
 
 ## Example
 
