@@ -56,7 +56,28 @@ For .NET Core projects you should use dependency injection.
 
 ```csharp
 //App startup code
-services.AddUnifiedApiClient((client) => {
+
+//Configure the HTTP client
+services.AddHttpClient("Unified")
+        .ConfigureHttpClient(client => {
+            client.BaseAddress = new Uri("https://services-fcvsua-demo.fsmb.org/");
+        });
+       
+//Configure the credentials to use
+services.AddSingleton(new UnifiedApiClientCredentials() {
+    ClientId = "<client-id>",
+    ClientSecret = "<client-secret>"
+});
+
+//Register the client
+services.AddScoped<UnifiedApiClient>(provider => {
+    var options = provider.GetService<UnifiedApiClientOptions>();
+    var credentials = provider.GetRequiredService<UnifiedApiClientCredentials>();
+
+    var factory = provider.GetRequiredService<IHttpClientFactory>();
+    var client = factory.CreateClient("Unified");
+
+    return new UnifiedApiClient(client, options, credentials);
 });
 
 //Code that uses client through DI

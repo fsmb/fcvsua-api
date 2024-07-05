@@ -48,7 +48,7 @@ namespace Fsmb.Api.Unified.Client
         /// <remarks>
         /// Credentials must be configured on the HTTP client when using this overload.
         /// </remarks>
-        public UnifiedApiClient ( HttpClient client, string board ) : this(client, new UnifiedApiClientOptions() {  Board = board }, null)
+        public UnifiedApiClient ( HttpClient client, string board ) : this(client, new UnifiedApiClientOptions() { Board = board }, null)
         {
         }
 
@@ -56,7 +56,7 @@ namespace Fsmb.Api.Unified.Client
         /// <param name="client">HTTP client to use.</param>
         /// <param name="credentials">Credentials to use.</param>
         public UnifiedApiClient ( HttpClient client, UnifiedApiClientCredentials credentials ) : this(client, new UnifiedApiClientOptions(), credentials)
-        {        
+        {
         }
 
         /// <summary>Initializes an instance of the <see cref="UnifiedApiClient"/> class.</summary>
