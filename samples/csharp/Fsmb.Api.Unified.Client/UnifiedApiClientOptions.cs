@@ -16,12 +16,10 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 
-using Fsmb.Api.Unified.Client.Authentication;
-
 namespace Fsmb.Api.Unified.Client
 {
-    /// <summary>Credentials for using the API client.</summary>
-    public class UnifiedClientCredentials : OAuthClientCredentials
+    /// <summary>Options for using the API client.</summary>
+    public class UnifiedApiClientOptions
     {        
         /// <summary>Board code (default is: `me`)</summary>
         [Required(AllowEmptyStrings = false)]

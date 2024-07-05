@@ -13,19 +13,20 @@
  * COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, 
  * ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-namespace Fsmb.Api.Unified.Sample;
+using System;
 
-public class ProgramOptions
+using Fsmb.Api.Unified.Client.Authentication;
+
+namespace Fsmb.Api.Unified.Client
 {
-    public const string DefaultBoard = "me";
-
-    public const string DefaultUrl = "https://services-fcvsua-demo.fsmb.org";
-
-    public string ClientId { get; set; }
-
-    public string ClientSecret { get; set; }
-
-    public string Url { get; set; }
-
-    public string Board { get; set; }
+    /// <summary>Provides the credentials for the API.</summary>
+    public class UnifiedApiClientCredentials : OAuthClientCredentials
+    {
+        /// <summary>Initializes an instance of the <see cref="UnifiedApiClientCredentials"/> class.</summary>
+        public UnifiedApiClientCredentials ()
+        {
+            TokenUrl = "connect/token";
+            Scopes = new[] { "fcvs.read" };
+        }
+    }
 }

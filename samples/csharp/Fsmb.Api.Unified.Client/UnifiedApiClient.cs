@@ -25,38 +25,56 @@ using Fsmb.Api.Unified.Client.Models;
 namespace Fsmb.Api.Unified.Client
 {
     /// <summary>Provides an HTTP client for working with the FSMB Unified API.</summary>
-    public class UnifiedClient
+    public class UnifiedApiClient
     {
         #region Construction
 
-        /// <summary>Initializes an instance of the <see cref="UnifiedClient"/> class.</summary>
-        protected UnifiedClient ()
+        /// <summary>Initializes an instance of the <see cref="UnifiedApiClient"/> class.</summary>
+        protected UnifiedApiClient ()
         { }
 
-        /// <summary>Initializes an instance of the <see cref="UnifiedClient"/> class.</summary>
+        /// <summary>Initializes an instance of the <see cref="UnifiedApiClient"/> class.</summary>
         /// <param name="client">HTTP client to use.</param>
         /// <remarks>
         /// Credentials must be configured on the HTTP client when using this overload.
         /// </remarks>
-        public UnifiedClient ( HttpClient client ) : this(client, null)
+        public UnifiedApiClient ( HttpClient client ) : this(client, null, null)
         {
         }
 
-        /// <summary>Initializes an instance of the <see cref="UnifiedClient"/> class.</summary>
+        /// <summary>Initializes an instance of the <see cref="UnifiedApiClient"/> class.</summary>
         /// <param name="client">HTTP client to use.</param>
-        public UnifiedClient ( HttpClient client, UnifiedClientCredentials credentials )
+        /// <param name="board">Board to use.</param>
+        /// <remarks>
+        /// Credentials must be configured on the HTTP client when using this overload.
+        /// </remarks>
+        public UnifiedApiClient ( HttpClient client, string board ) : this(client, new UnifiedApiClientOptions() {  Board = board }, null)
+        {
+        }
+
+        /// <summary>Initializes an instance of the <see cref="UnifiedApiClient"/> class.</summary>
+        /// <param name="client">HTTP client to use.</param>
+        /// <param name="credentials">Credentials to use.</param>
+        public UnifiedApiClient ( HttpClient client, UnifiedApiClientCredentials credentials ) : this(client, new UnifiedApiClientOptions(), credentials)
+        {        
+        }
+
+        /// <summary>Initializes an instance of the <see cref="UnifiedApiClient"/> class.</summary>
+        /// <param name="client">HTTP client to use.</param>
+        /// <param name="credentials">Credentials to use.</param>
+        /// <param name="options">API options</param>
+        public UnifiedApiClient ( HttpClient client, UnifiedApiClientOptions options, UnifiedApiClientCredentials credentials )
         {         
             Client = client;
 
-            _baseUrl = $"v1/{credentials.Board}";
+            var board = options?.Board ?? "me";
+            _baseUrl = $"v1/{board}";
 
             if (credentials != null)
             {
-                _credentials = new OAuthClientCredentials() {
-                    TokenUrl = "connect/token",
+                _credentials = new UnifiedApiClientCredentials() {                    
                     ClientId = credentials.ClientId,
                     ClientSecret = credentials.ClientSecret,
-                    Scopes = new[] { "fcvs.read" }
                 };
             };
         }
@@ -120,7 +138,7 @@ namespace Fsmb.Api.Unified.Client
 
         #region Private Members
 
-        private readonly OAuthClientCredentials _credentials;
+        private readonly UnifiedApiClientCredentials _credentials;
         private readonly string _baseUrl;
 
         private OAuthAccessToken _accessToken;

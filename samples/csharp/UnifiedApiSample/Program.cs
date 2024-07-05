@@ -21,36 +21,40 @@ namespace Fsmb.Api.Unified.Sample;
 class Program
 {
     static void Main ( string[] args )
-    {
+    {        
         var program = new Program();
 
-        program.Run(args);
+        program.Run(args);        
     }
 
     #region API Calls
-
-    //HttpClient requires that base addresses end with a slash
-    private UnifiedClient CreateClient ( ProgramOptions options )
+        
+    //This method is for setting up a client for NET Framework or when not using dependency injection
+    private UnifiedApiClient CreateClient ( ProgramOptions options )
     {
-        var credentials = new UnifiedClientCredentials() {
-            ClientId = options.ClientId,
-            ClientSecret = options.ClientSecret,
-            Board = options.Board,
+        var clientOptions = new UnifiedApiClientOptions() {
+            Board = options.Board
         };
 
+        var credentials = new UnifiedApiClientCredentials() {
+            ClientId = options.ClientId,
+            ClientSecret = options.ClientSecret            
+        };
+
+        //HttpClient requires that base addresses end with a slash
         var httpClient = new HttpClient() {
             BaseAddress = new Uri(options.Url.EnsureEndsWith("/"))
         };
 
-        return new UnifiedClient(httpClient, credentials);
+        return new UnifiedApiClient(httpClient, clientOptions, credentials);
     }
     
     // Get applicant data by a FID
-    private async Task GetApplicantByFidAsync ( UnifiedClient client, string fid )
+    private async Task GetApplicantByFidAsync ( UnifiedApiClient client, string fid, CancellationToken cancellationToken )
     {
         //Call API
         Terminal.WriteDebug($"Getting applicant data for FID {fid}");
-        var data = await client.GetApplicantByFidAsync(fid).ConfigureAwait(false);
+        var data = await client.GetApplicantByFidAsync(fid, cancellationToken).ConfigureAwait(false);
         if (data == null)
             Terminal.WriteWarning("No data found");
         else
@@ -68,7 +72,7 @@ class Program
 
     #region Private Members        
 
-    private Func<UnifiedClient, Task> DisplayMenu ()
+    private Func<UnifiedApiClient, Task> DisplayMenu ()
     {
         Terminal.WriteLine("\nUnified API Options");
         Terminal.WriteLine("".PadLeft(20, '-'));
@@ -123,14 +127,14 @@ class Program
         return true;
     }
 
-    private Task OnQuitAsync ( UnifiedClient client )
+    private Task OnQuitAsync ( UnifiedApiClient client )
     {
         _quit = true;
 
         return Task.CompletedTask;
     }
 
-    private async Task OnGetApplicantByFidAsync ( UnifiedClient client )
+    private async Task OnGetApplicantByFidAsync ( UnifiedApiClient client )
     {
         try
         {
@@ -139,7 +143,7 @@ class Program
             if (String.IsNullOrEmpty(fid))
                 return;
 
-            await GetApplicantByFidAsync(client, fid).ConfigureAwait(false);
+            await GetApplicantByFidAsync(client, fid, CancellationToken.None).ConfigureAwait(false);
         } catch (Exception e)
         {
             e = e.Unwrap();
@@ -229,7 +233,7 @@ class Program
         Terminal.WriteLine($"-board <board> where <board> is the board code (Default = {ProgramOptions.DefaultBoard})");
     }
 
-    private UnifiedClient _client;    
+    private UnifiedApiClient _client;    
 
     private ITerminal Terminal => ConsoleTerminal.Default;
 

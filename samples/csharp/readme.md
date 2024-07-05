@@ -45,28 +45,29 @@ For .NET Framework projects do the following.
 HttpClient httpClient = new HttpClient() {
     BaseAddress = new Uri("<url ending with slash>")
 };
-var credendentials = new UnifiedClientCredentials() {
+var credendentials = new UnifiedApiClientCredentials() {
     ClientId = "clientId",
     ClientSecret = "clientSecret"
 };
-UnifiedClient client = new UnifiedClient(httpClient, credentials);
+UnifiedClient client = new UnifiedApiClient(httpClient, credentials);
 ```
 
 For .NET Core projects you should use dependency injection.
 
 ```csharp
 //App startup code
-services.AddHttpClient<FcsvUaClient>();
+services.AddUnifiedApiClient((client) => {
+});
 
 //Code that uses client through DI
-class SomeService
+class FsmbService
 {
-   public SomeService ( UnifiedClient client )
+   public FsmbService ( UnifiedApiClient client )
    {
       _client = client;
    }
 
-   private readonly UnifiedClient _client;
+   private readonly UnifiedApiClient _client;
 }
 ```
 
