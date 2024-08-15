@@ -2,7 +2,7 @@
 // Changes may cause incorrect behavior and will be lost if the code is
 // regenerated.
 
-namespace Fsmb.Api.FcvsUa.Client.Models.Addendum
+namespace Fsmb.Api.Unified.Client.Models.Addendum
 {
     /// <summary>
     /// Accredited training information
