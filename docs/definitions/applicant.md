@@ -27,6 +27,7 @@ Applicant details
 | pdc | [PdcReport](pdc/pdc-report.md) | No | PDC information, if available. |
 | amaReportStatus | string ([AmaReportStatus](ama/ama-report-status.md)) | Yes | Status of AMA report. |
 | ama | [AmaReport](ama/ama-report.md) | No | AMA information, if available. |
+| stateAddendum | [StateAddendum](addendum/addendum-state.md) | No | Available only for boards using Docusign addendums. |
 
 *Note: Any fields marked as deprecated will be removed in a future version of the API. New code should not rely on these fields. Existing code should be updated to use alternative fields.*
 
