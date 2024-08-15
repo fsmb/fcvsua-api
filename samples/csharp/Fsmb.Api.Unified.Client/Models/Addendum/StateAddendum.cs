@@ -11,10 +11,10 @@ namespace Fsmb.Api.Unified.Client.Models.Addendum
     public partial class StateAddendum
     {
         /// <summary>
-        /// Date and time the addendum was completed.
+        /// Date and time the addendum was completed, in UTC.
         /// </summary>
         [Newtonsoft.Json.JsonProperty(PropertyName = "completedDate", Required = Newtonsoft.Json.Required.Always)]
-        public System.DateTime CompletedDate { get; set; }
+        public System.DateTime CompletedDateUtc { get; set; }
 
         /// <summary>
         /// List of questeions and answers.
