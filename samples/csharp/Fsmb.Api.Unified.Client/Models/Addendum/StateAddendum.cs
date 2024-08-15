@@ -17,7 +17,7 @@ namespace Fsmb.Api.Unified.Client.Models.Addendum
         public System.DateTime CompletedDateUtc { get; set; }
 
         /// <summary>
-        /// List of questeions and answers.
+        /// List of questions and answers.
         /// </summary>
         [Newtonsoft.Json.JsonProperty(PropertyName = "questions", Required = Newtonsoft.Json.Required.Always)]
         public System.Collections.Generic.IList<StateAddendumQuestion> Questions { get; set; }
