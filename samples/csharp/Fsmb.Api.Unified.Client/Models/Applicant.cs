@@ -100,5 +100,9 @@ namespace Fsmb.Api.Unified.Client.Models
 
         /// <summary>AMA information, if available</summary>
         public Ama.AmaReport Ama { get; set; }
+
+        /// <summary>State addendum</summary>
+        [Newtonsoft.Json.JsonProperty(PropertyName = "stateAddendum", Required = Newtonsoft.Json.Required.Default)]
+        public Addendum.StateAddendum StateAddendum { get; set; }
     }
 }
