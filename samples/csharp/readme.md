@@ -1,4 +1,4 @@
-# FcsvUa API Sample (C#)
+# FcvsUa API Sample (C#)
 
 [Run the Code](#run-the-code) \
 [Using the Class Library](#using-the-class-library) \
@@ -30,7 +30,7 @@ To use the class library in your own code do the following.
 
 1. Ensure either the project is part of your solution or build the project and reference the generated assembly in your solution.
 1. In your application's startup code store the URL to the API (see the documentation), your client ID and client secret somewhere that your code has access to such as a configuration file or environment variable.
-1. To call the API create an instance of the `FcsvUaClient` class and pass the configuration information stored earlier. See below for more information.     
+1. To call the API create an instance of the `FcvsUaClient` class and pass the configuration information stored earlier. See below for more information.     
 1. Use the client to make calls to the API.
    ```
    //Assuming this code is called in an async function then use await to wait for the response
@@ -45,11 +45,11 @@ For .NET Framework projects do the following.
 HttpClient httpClient = new HttpClient() {
     BaseAddress = new Uri("<url ending with slash>")
 };
-var credendentials = new FcsvUaApiClientCredentials() {
+var credendentials = new FcvsUaApiClientCredentials() {
     ClientId = "clientId",
     ClientSecret = "clientSecret"
 };
-FcsvUaClient client = new FcsvUaApiClient(httpClient, credentials);
+FcvsUaClient client = new FcvsUaApiClient(httpClient, credentials);
 ```
 
 For .NET Core projects you should use dependency injection.
@@ -58,37 +58,37 @@ For .NET Core projects you should use dependency injection.
 //App startup code
 
 //Configure the HTTP client
-services.AddHttpClient("FcsvUa")
+services.AddHttpClient("FcvsUa")
         .ConfigureHttpClient(client => {
             client.BaseAddress = new Uri("https://services-fcvsua-demo.fsmb.org/");
         });
        
 //Configure the credentials to use
-services.AddSingleton(new FcsvUaApiClientCredentials() {
+services.AddSingleton(new FcvsUaApiClientCredentials() {
     ClientId = "<client-id>",
     ClientSecret = "<client-secret>"
 });
 
 //Register the client
-services.AddScoped<FcsvUaApiClient>(provider => {
-    var options = provider.GetService<FcsvUaApiClientOptions>();
-    var credentials = provider.GetRequiredService<FcsvUaApiClientCredentials>();
+services.AddScoped<FcvsUaApiClient>(provider => {
+    var options = provider.GetService<FcvsUaApiClientOptions>();
+    var credentials = provider.GetRequiredService<FcvsUaApiClientCredentials>();
 
     var factory = provider.GetRequiredService<IHttpClientFactory>();
-    var client = factory.CreateClient("FcsvUa");
+    var client = factory.CreateClient("FcvsUa");
 
-    return new FcsvUaApiClient(client, options, credentials);
+    return new FcvsUaApiClient(client, options, credentials);
 });
 
 //Code that uses client through DI
 class FsmbService
 {
-   public FsmbService ( FcsvUaApiClient client )
+   public FsmbService ( FcvsUaApiClient client )
    {
       _client = client;
    }
 
-   private readonly FcsvUaApiClient _client;
+   private readonly FcvsUaApiClient _client;
 }
 ```
 
