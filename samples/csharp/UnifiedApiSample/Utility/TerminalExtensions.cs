@@ -15,7 +15,7 @@
  */
 using System;
 
-namespace Fsmb.Api.Unified
+namespace Fsmb.Api.FcsvUa
 {
     /// <summary>Provides extensions for <see cref="ITerminal"/>.</summary>
     public static class TerminalExtensions

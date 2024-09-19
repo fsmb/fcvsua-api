@@ -16,7 +16,7 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace Fsmb.Api.Unified.Ama
+namespace Fsmb.Api.FcsvUa.Ama
 {
     /// <summary>Physician demographic information</summary>
     public class AmaDemographics

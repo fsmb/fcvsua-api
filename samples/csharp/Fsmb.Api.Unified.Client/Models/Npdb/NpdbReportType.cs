@@ -16,7 +16,7 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace Fsmb.Api.Unified.Client.Models.Npdb
+namespace Fsmb.Api.FcsvUa.Client.Models.Npdb
 {
     /// <summary>Type of NPDB report</summary>
     public class NpdbReportType

@@ -16,7 +16,7 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace Fsmb.Api.Unified.Client.Models.Pdc
+namespace Fsmb.Api.FcsvUa.Client.Models.Pdc
 {
     /// <summary>PDC graduation date</summary>
     public class PdcGraduationDate

@@ -16,7 +16,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Fsmb.Api.Unified.Client.Authentication
+namespace Fsmb.Api.FcsvUa.Client.Authentication
 {
     /// <summary>OAuth client credentials</summary>
     public class OAuthClientCredentials

@@ -16,7 +16,7 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace Fsmb.Api.Unified.Client.Models
+namespace Fsmb.Api.FcsvUa.Client.Models
 {
     /// <summary>Malpractice information/summary>
     public class Malpractice

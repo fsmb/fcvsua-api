@@ -16,7 +16,7 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace Fsmb.Api.Unified.Client.Models.Pdc
+namespace Fsmb.Api.FcsvUa.Client.Models.Pdc
 {
     /// <summary>PDC Name</summary>
     public class PdcName

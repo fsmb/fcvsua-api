@@ -16,7 +16,7 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace Fsmb.Api.Unified.Client.Models
+namespace Fsmb.Api.FcsvUa.Client.Models
 {
     /// <summary>Accredited training information/summary>
     public class AccreditedTraining

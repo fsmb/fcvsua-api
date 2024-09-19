@@ -14,15 +14,19 @@
  * ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 using System;
-using System.ComponentModel.DataAnnotations;
 
-namespace Fsmb.Api.Unified.Client
+using Fsmb.Api.FcsvUa.Client.Authentication;
+
+namespace Fsmb.Api.FcsvUa.Client
 {
-    /// <summary>Options for using the API client.</summary>
-    public class UnifiedApiClientOptions
-    {        
-        /// <summary>Board code (default is: `me`)</summary>
-        [Required(AllowEmptyStrings = false)]
-        public string Board { get; set; } = "me";
+    /// <summary>Provides the credentials for the API.</summary>
+    public class FcsvUaApiClientCredentials : OAuthClientCredentials
+    {
+        /// <summary>Initializes an instance of the <see cref="FcsvUaApiClientCredentials"/> class.</summary>
+        public FcsvUaApiClientCredentials ()
+        {
+            TokenUrl = "connect/token";
+            Scopes = new[] { "fcvs.read" };
+        }
     }
 }

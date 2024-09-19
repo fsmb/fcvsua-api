@@ -15,7 +15,7 @@
  */
 using System;
 
-namespace Fsmb.Api.Unified
+namespace Fsmb.Api.FcsvUa
 {
     /// <summary>Options for writing objects.</summary>
     public struct ObjectWriterOptions

@@ -13,10 +13,10 @@
  * COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, 
  * ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-using Fsmb.Api.Unified.Client;
-using Fsmb.Api.Unified.Client.Models;
+using Fsmb.Api.FcsvUa.Client;
+using Fsmb.Api.FcsvUa.Client.Models;
 
-namespace Fsmb.Api.Unified.Sample;
+namespace Fsmb.Api.FcsvUa.Sample;
 
 class Program
 {
@@ -30,13 +30,13 @@ class Program
     #region API Calls
         
     //This method is for setting up a client for NET Framework or when not using dependency injection
-    private UnifiedApiClient CreateClient ( ProgramOptions options )
+    private FcsvUaApiClient CreateClient ( ProgramOptions options )
     {
-        var clientOptions = new UnifiedApiClientOptions() {
+        var clientOptions = new FcsvUaApiClientOptions() {
             Board = options.Board
         };
 
-        var credentials = new UnifiedApiClientCredentials() {
+        var credentials = new FcsvUaApiClientCredentials() {
             ClientId = options.ClientId,
             ClientSecret = options.ClientSecret            
         };
@@ -46,11 +46,11 @@ class Program
             BaseAddress = new Uri(options.Url.EnsureEndsWith("/"))
         };
 
-        return new UnifiedApiClient(httpClient, clientOptions, credentials);
+        return new FcsvUaApiClient(httpClient, clientOptions, credentials);
     }
     
     // Get applicant data by a FID
-    private async Task GetApplicantByFidAsync ( UnifiedApiClient client, string fid, CancellationToken cancellationToken )
+    private async Task GetApplicantByFidAsync ( FcsvUaApiClient client, string fid, CancellationToken cancellationToken )
     {
         //Call API
         Terminal.WriteDebug($"Getting applicant data for FID {fid}");
@@ -72,9 +72,9 @@ class Program
 
     #region Private Members        
 
-    private Func<UnifiedApiClient, Task> DisplayMenu ()
+    private Func<FcsvUaApiClient, Task> DisplayMenu ()
     {
-        Terminal.WriteLine("\nUnified API Options");
+        Terminal.WriteLine("\nFcsvUa API Options");
         Terminal.WriteLine("".PadLeft(20, '-'));
 
         Terminal.WriteLine("1) Get the applicant data for a specific FID");
@@ -127,14 +127,14 @@ class Program
         return true;
     }
 
-    private Task OnQuitAsync ( UnifiedApiClient client )
+    private Task OnQuitAsync ( FcsvUaApiClient client )
     {
         _quit = true;
 
         return Task.CompletedTask;
     }
 
-    private async Task OnGetApplicantByFidAsync ( UnifiedApiClient client )
+    private async Task OnGetApplicantByFidAsync ( FcsvUaApiClient client )
     {
         try
         {
@@ -233,7 +233,7 @@ class Program
         Terminal.WriteLine($"-board <board> where <board> is the board code (Default = {ProgramOptions.DefaultBoard})");
     }
 
-    private UnifiedApiClient _client;    
+    private FcsvUaApiClient _client;    
 
     private ITerminal Terminal => ConsoleTerminal.Default;
 

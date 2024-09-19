@@ -17,7 +17,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace Fsmb.Api.Unified.Client.Models
+namespace Fsmb.Api.FcsvUa.Client.Models
 {
     /// <summary>Mailing addresses/summary>
     public class Addresses

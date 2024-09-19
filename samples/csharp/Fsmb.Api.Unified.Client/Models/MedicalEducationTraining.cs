@@ -17,7 +17,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace Fsmb.Api.Unified.Client.Models
+namespace Fsmb.Api.FcsvUa.Client.Models
 {
     /// <summary>Medical education/summary>
     public class MedicalEducationTraining

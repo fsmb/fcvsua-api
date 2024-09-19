@@ -16,7 +16,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Fsmb.Api.Unified.Client.Models
+namespace Fsmb.Api.FcsvUa.Client.Models
 {
     public class PostGraduateTraining
     {

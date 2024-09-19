@@ -16,7 +16,7 @@
 using System;
 using System.Linq;
 
-namespace Fsmb.Api.Unified
+namespace Fsmb.Api.FcsvUa
 {
     /// <summary>Extension methods for <see cref="String"/>.</summary>
     public static class StringExtensions

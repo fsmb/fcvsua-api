@@ -7,6 +7,6 @@
   </PropertyGroup>
   
   <ItemGroup>
-    <ProjectReference Include="..\Fsmb.Api.Unified.Client\Fsmb.Api.Unified.Client.csproj" />
+    <ProjectReference Include="..\Fsmb.Api.FcsvUa.Client\Fsmb.Api.FcsvUa.Client.csproj" />
   </ItemGroup>   
 </Project>

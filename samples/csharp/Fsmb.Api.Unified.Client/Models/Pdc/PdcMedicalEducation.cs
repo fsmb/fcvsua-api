@@ -15,7 +15,7 @@
  */
 using System;
 
-namespace Fsmb.Api.Unified.Client.Models.Pdc
+namespace Fsmb.Api.FcsvUa.Client.Models.Pdc
 {
     /// <summary>PDC medical education</summary>
     public class PdcMedicalEducation

@@ -15,7 +15,7 @@
  */
 using System;
 
-namespace Fsmb.Api.Unified.Client.Authentication
+namespace Fsmb.Api.FcsvUa.Client.Authentication
 {
     /// <summary>OAuth access token</summary>
     public class OAuthAccessToken

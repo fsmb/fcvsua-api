@@ -20,7 +20,7 @@ using System.Net.Http.Json;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Fsmb.Api.Unified.Client.Authentication
+namespace Fsmb.Api.FcsvUa.Client.Authentication
 {
     /// <summary>Provides OAuth extensions for HTTP clients.</summary>
     public static class OAuthHttpExtensions

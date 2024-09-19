@@ -16,7 +16,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Fsmb.Api.Unified.Client.Models.Pdc
+namespace Fsmb.Api.FcsvUa.Client.Models.Pdc
 { 
     /// <summary>PDC AOA information/summary>
     public class PdcAoa

@@ -15,7 +15,7 @@
  */
 using System;
 
-namespace Fsmb.Api.Unified.Client.Models
+namespace Fsmb.Api.FcsvUa.Client.Models
 {
     /// <summary>UA Submission information/summary>
     public class UaSubmission

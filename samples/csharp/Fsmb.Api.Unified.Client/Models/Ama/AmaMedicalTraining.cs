@@ -15,7 +15,7 @@
  */
 using System;
 
-namespace Fsmb.Api.Unified.Ama
+namespace Fsmb.Api.FcsvUa.Ama
 {
     /// <summary>Medical training</summary>
     public class AmaMedicalTraining

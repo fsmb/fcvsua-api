@@ -17,7 +17,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace Fsmb.Api.Unified.Client.Models.Pdc
+namespace Fsmb.Api.FcsvUa.Client.Models.Pdc
 {
     /// <summary>PDC medical school</summary>
     public class PdcMedicalSchool

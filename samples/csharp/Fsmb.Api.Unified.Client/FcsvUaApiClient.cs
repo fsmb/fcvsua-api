@@ -19,51 +19,51 @@ using System.Net.Http.Json;
 using System.Threading;
 using System.Threading.Tasks;
 
-using Fsmb.Api.Unified.Client.Authentication;
-using Fsmb.Api.Unified.Client.Models;
+using Fsmb.Api.FcsvUa.Client.Authentication;
+using Fsmb.Api.FcsvUa.Client.Models;
 
-namespace Fsmb.Api.Unified.Client
+namespace Fsmb.Api.FcsvUa.Client
 {
-    /// <summary>Provides an HTTP client for working with the FSMB Unified API.</summary>
-    public class UnifiedApiClient
+    /// <summary>Provides an HTTP client for working with the FSMB FcsvUa API.</summary>
+    public class FcsvUaApiClient
     {
         #region Construction
 
-        /// <summary>Initializes an instance of the <see cref="UnifiedApiClient"/> class.</summary>
-        protected UnifiedApiClient ()
+        /// <summary>Initializes an instance of the <see cref="FcsvUaApiClient"/> class.</summary>
+        protected FcsvUaApiClient ()
         { }
 
-        /// <summary>Initializes an instance of the <see cref="UnifiedApiClient"/> class.</summary>
+        /// <summary>Initializes an instance of the <see cref="FcsvUaApiClient"/> class.</summary>
         /// <param name="client">HTTP client to use.</param>
         /// <remarks>
         /// Credentials must be configured on the HTTP client when using this overload.
         /// </remarks>
-        public UnifiedApiClient ( HttpClient client ) : this(client, null, null)
+        public FcsvUaApiClient ( HttpClient client ) : this(client, null, null)
         {
         }
 
-        /// <summary>Initializes an instance of the <see cref="UnifiedApiClient"/> class.</summary>
+        /// <summary>Initializes an instance of the <see cref="FcsvUaApiClient"/> class.</summary>
         /// <param name="client">HTTP client to use.</param>
         /// <param name="board">Board to use.</param>
         /// <remarks>
         /// Credentials must be configured on the HTTP client when using this overload.
         /// </remarks>
-        public UnifiedApiClient ( HttpClient client, string board ) : this(client, new UnifiedApiClientOptions() { Board = board }, null)
+        public FcsvUaApiClient ( HttpClient client, string board ) : this(client, new FcsvUaApiClientOptions() { Board = board }, null)
         {
         }
 
-        /// <summary>Initializes an instance of the <see cref="UnifiedApiClient"/> class.</summary>
+        /// <summary>Initializes an instance of the <see cref="FcsvUaApiClient"/> class.</summary>
         /// <param name="client">HTTP client to use.</param>
         /// <param name="credentials">Credentials to use.</param>
-        public UnifiedApiClient ( HttpClient client, UnifiedApiClientCredentials credentials ) : this(client, new UnifiedApiClientOptions(), credentials)
+        public FcsvUaApiClient ( HttpClient client, FcsvUaApiClientCredentials credentials ) : this(client, new FcsvUaApiClientOptions(), credentials)
         {
         }
 
-        /// <summary>Initializes an instance of the <see cref="UnifiedApiClient"/> class.</summary>
+        /// <summary>Initializes an instance of the <see cref="FcsvUaApiClient"/> class.</summary>
         /// <param name="client">HTTP client to use.</param>
         /// <param name="credentials">Credentials to use.</param>
         /// <param name="options">API options</param>
-        public UnifiedApiClient ( HttpClient client, UnifiedApiClientOptions options, UnifiedApiClientCredentials credentials )
+        public FcsvUaApiClient ( HttpClient client, FcsvUaApiClientOptions options, FcsvUaApiClientCredentials credentials )
         {         
             Client = client;
 
@@ -72,7 +72,7 @@ namespace Fsmb.Api.Unified.Client
 
             if (credentials != null)
             {
-                _credentials = new UnifiedApiClientCredentials() {                    
+                _credentials = new FcsvUaApiClientCredentials() {                    
                     ClientId = credentials.ClientId,
                     ClientSecret = credentials.ClientSecret,
                 };
@@ -138,7 +138,7 @@ namespace Fsmb.Api.Unified.Client
 
         #region Private Members
 
-        private readonly UnifiedApiClientCredentials _credentials;
+        private readonly FcsvUaApiClientCredentials _credentials;
         private readonly string _baseUrl;
 
         private OAuthAccessToken _accessToken;

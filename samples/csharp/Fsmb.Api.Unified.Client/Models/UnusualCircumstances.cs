@@ -15,7 +15,7 @@
  */
 using System;
 
-namespace Fsmb.Api.Unified.Client.Models
+namespace Fsmb.Api.FcsvUa.Client.Models
 {
     /// <summary>Represents the UCs for an institution or program.</summary>
     /// <summary>Unusual circumstances/summary>

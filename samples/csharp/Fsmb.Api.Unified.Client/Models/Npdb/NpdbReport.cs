@@ -16,7 +16,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Fsmb.Api.Unified.Client.Models.Npdb
+namespace Fsmb.Api.FcsvUa.Client.Models.Npdb
 {
     /// <summary>NPDB report</summary>
     /// <summary>NPDB report, if available/summary>

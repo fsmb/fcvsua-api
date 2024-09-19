@@ -16,7 +16,7 @@
 using System;
 using System.Reflection;
 
-namespace Fsmb.Api.Unified
+namespace Fsmb.Api.FcsvUa
 {
     public static class ExceptionExtensions
     {

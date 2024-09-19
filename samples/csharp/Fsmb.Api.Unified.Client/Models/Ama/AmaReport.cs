@@ -16,7 +16,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Fsmb.Api.Unified.Ama
+namespace Fsmb.Api.FcsvUa.Ama
 {
     /// <summary>Physician profile</summary>
     public class AmaReport
