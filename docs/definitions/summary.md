@@ -15,59 +15,18 @@ Applicant summary details. Release dates are in local time
 ## Example
 
 ```json
-[
-    {
-        "fid": "307532069",
-        "name": {
-            "firstName": "Mungu",
-            "middleName": "",
-            "lastName": "Patel",
-            "suffix": ""
-        },
-        "isFcvsAvailable": false,
-        "isUaAvailable": true,
-        "uaReleaseDate": "2025-12-11T17:25:47.887",
-        "releaseDate": "2025-12-11T17:25:47.887"
+{
+    "fid": "209856897",
+    "name": {
+        "firstName": "Fedon",
+        "middleName": "",
+        "lastName": "Mavromatis",
+        "suffix": ""
     },
-    {
-        "fid": "209856897",
-        "name": {
-            "firstName": "Fedon",
-            "middleName": "",
-            "lastName": "Mavromatis",
-            "suffix": ""
-        },
-        "isFcvsAvailable": true,
-        "fcvsReleaseDate": "2025-11-06T17:25:40.43",
-        "isUaAvailable": true,
-        "uaReleaseDate": "2025-11-05T17:25:48.903",
-        "releaseDate": "2025-11-06T17:25:40.43"
-    },
-    {
-        "fid": "210163887",
-        "name": {
-            "firstName": "Peter",
-            "middleName": "Gerard",
-            "lastName": "Gabos",
-            "suffix": ""
-        },
-        "isFcvsAvailable": true,
-        "fcvsReleaseDate": "2025-10-23T17:25:40.99",
-        "isUaAvailable": false,
-        "releaseDate": "2025-10-23T17:25:40.99"
-    },
-    {
-        "fid": "201341542",
-        "name": {
-            "firstName": "Mamoun Ahmed El-Murtada",
-            "middleName": "",
-            "lastName": "Elmamoun",
-            "suffix": ""
-        },
-        "isFcvsAvailable": true,
-        "fcvsReleaseDate": "2025-10-09T17:25:46.887",
-        "isUaAvailable": false,
-        "releaseDate": "2025-10-09T17:25:46.887"
-    }
-]
+    "isFcvsAvailable": true,
+    "fcvsReleaseDate": "2025-11-06T17:25:40.43",
+    "isUaAvailable": true,
+    "uaReleaseDate": "2025-11-05T17:25:48.903",
+    "releaseDate": "2025-11-06T17:25:40.43"
+}
 ```
