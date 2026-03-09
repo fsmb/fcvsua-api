@@ -34,16 +34,16 @@ GET {baseUrl}/v1/{board}/applicants/summary?fromDate={fromDate}&toDate={toDate}
 
 ## Examples
 
-[Get summary by date range](#get-summary-by-date-range)
+[Get Summary for Three Months](#get-summary-for-three-months)
 
 ***
 
-### Get Summary by Date Range
+### Get Summary for Three Months
 
 #### Sample Request
 
 ```HTTP
-GET {baseUrl}/v1/me/applicants/summary?fromDate=2025-06-01&toDate=2025-12-31
+GET {baseUrl}/v1/me/applicants/summary?fromDate=2025-10-01&toDate=2025-12-31
 ```
 
 #### Sample Response
