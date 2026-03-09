@@ -13,6 +13,8 @@
  * COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, 
  * ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
+using System.Globalization;
+using System.Text.Json;
 using Fsmb.Api.FcvsUa.Client;
 using Fsmb.Api.FcvsUa.Client.Models;
 
@@ -58,15 +60,33 @@ class Program
         if (data == null)
             Terminal.WriteWarning("No data found");
         else
-            WriteData(data);
+            WriteApplicantData(data);
+    }
+
+    // Get summary data by date range
+    private async Task GetSummaryByDateRangeAsync ( FcvsUaApiClient client, string fromDate, string toDate, CancellationToken cancellationToken )
+    {
+        //Call API
+        Terminal.WriteDebug($"Getting summary data between '{fromDate}' and '{toDate}'");
+        var data = await client.GetSummaryByDateRangeAsync(fromDate, toDate, cancellationToken).ConfigureAwait(false);
+        if (data == null)
+            Terminal.WriteWarning("No data found");
+        else
+            WriteSummaryData(data);
     }
 
     private static string GetFullName ( Name name )
                     => String.Join(" ", name.FirstName, name.MiddleName, name.LastName, name.Suffix);
 
-    private void WriteData ( Applicant applicant )
+    private void WriteApplicantData ( Applicant applicant )
     {
         Terminal.WriteObject("Applicant", applicant);
+    }
+
+    private void WriteSummaryData ( List<Summary> summary )
+    {
+        var json = JsonSerializer.Serialize(summary, new JsonSerializerOptions { WriteIndented = true });
+        Terminal.WriteLine(json);
     }
     #endregion
 
@@ -78,6 +98,7 @@ class Program
         Terminal.WriteLine("".PadLeft(20, '-'));
 
         Terminal.WriteLine("1) Get the applicant data for a specific FID");
+        Terminal.WriteLine("2) Get a summary of applicant data for a specific time range");
         Terminal.WriteLine("0) Quit");
 
         do
@@ -86,6 +107,7 @@ class Program
             {
                 case '0': return OnQuitAsync;
                 case '1': return OnGetApplicantByFidAsync;
+                case '2': return OnGetSummaryByDateRangeAsync;
             };
         } while (true);
     }
@@ -144,6 +166,39 @@ class Program
                 return;
 
             await GetApplicantByFidAsync(client, fid, CancellationToken.None).ConfigureAwait(false);
+        } catch (Exception e)
+        {
+            e = e.Unwrap();
+
+            Terminal.WriteError(e.Message);
+        };
+    }
+
+    private async Task OnGetSummaryByDateRangeAsync ( FcvsUaApiClient client )
+    {
+        try
+        {
+            //Get the date range
+            var format = "yyyy-mm-dd";
+            var fromDateStr = Terminal.ReadString("Start date yyyy-mm-dd (or ENTER to cancel)? ", allowEmptyStrings: true);
+            if (String.IsNullOrEmpty(fromDateStr))
+                return;
+            if (!DateTime.TryParseExact(fromDateStr, format, CultureInfo.InvariantCulture, DateTimeStyles.None, out var fromDate))
+            {
+                Terminal.WriteError("Invalid start date");
+                return;
+            };
+
+            var toDateStr = Terminal.ReadString("End date yyyy-mm-dd (or ENTER to cancel)? ", allowEmptyStrings: true);
+            if (String.IsNullOrEmpty(toDateStr))
+                return;
+            if (!DateTime.TryParseExact(toDateStr, format, CultureInfo.InvariantCulture, DateTimeStyles.None, out var toDate))
+            {
+                Terminal.WriteError("Invalid start date");
+                return;
+            };
+
+            await GetSummaryByDateRangeAsync(client, fromDateStr, toDateStr, CancellationToken.None).ConfigureAwait(false);
         } catch (Exception e)
         {
             e = e.Unwrap();

@@ -14,6 +14,7 @@
  * ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 using System;
+using System.Collections.Generic;
 using System.Net.Http;
 using System.Net.Http.Json;
 using System.Threading;
@@ -106,6 +107,29 @@ namespace Fsmb.Api.FcvsUa.Client
                 return await response.Content.ReadFromJsonAsync<Applicant>(cancellationToken).ConfigureAwait(false);
             };
         }
+
+        /// <summary>Get Summary By Date Range</summary>
+        /// <param name="fromDate">Start date for summary date range.</param>
+        /// <param name="toDate">End date for summary date range.</param>
+        /// <param name="cancellationToken">Cancellation token.</param>
+        /// <returns>Summary, if any</returns>
+        public virtual async Task<List<Summary>> GetSummaryByDateRangeAsync ( string fromDate, string toDate, CancellationToken cancellationToken = default )
+        {
+            var url = GetResourceUrl(String.Join("/", "applicants", $"summary?fromDate={fromDate}&toDate={toDate}"));
+
+            var request = new HttpRequestMessage(HttpMethod.Get, url);
+            await PrepareRequestAsync(request, cancellationToken).ConfigureAwait(false);
+
+            using (var response = await Client.SendAsync(request, cancellationToken).ConfigureAwait(false))
+            {
+                if (response.StatusCode == System.Net.HttpStatusCode.NotFound || response.StatusCode == System.Net.HttpStatusCode.NoContent)
+                    return null;
+
+                response.EnsureSuccessStatusCode();
+                return await response.Content.ReadFromJsonAsync<List<Summary>>(cancellationToken).ConfigureAwait(false);
+            };
+        }
+
         #region Protected Members
 
         /// <summary>Gets the underlying HTTP client.</summary>
