@@ -34,7 +34,7 @@ GET {baseUrl}/v1/{board}/applicants/summary?fromDate={fromDate}&toDate={toDate}
 
 ## Examples
 
-[Get summary by date range](#get-summary-date)
+[Get summary by date range](#get-summary-by-date-range)
 
 ***
 
@@ -50,7 +50,7 @@ GET {baseUrl}/v1/me/applicants/summary?fromDate=2025-06-01&toDate=2025-12-31
 
 Status code: 200
 
-*Note: Output is elided. Refer to [Applicant](/docs/definitions/summary.md) for a complete example.*
+*Note: Output is elided. Refer to [Summary](/docs/definitions/summary.md) for a complete example.*
 
 ```json
 [
