@@ -19,7 +19,7 @@ GET {baseUrl}/v1/{board}/applicants/summary?fromDate={fromDate}&toDate={toDate}
 
 | Name | Type | Description |
 | - |-|-|
-| 200 OK | [Summary](/docs/definitions/summary.md) | Success |
+| 200 OK | [Summary[]](/docs/definitions/summary.md) | Success |
 | 204 No Content | | There are no results that match the criteria. |
 | 400 Bad request | | Criteria is bad. |
 | 404 Not Found | | Board code is missing or invalid. |
