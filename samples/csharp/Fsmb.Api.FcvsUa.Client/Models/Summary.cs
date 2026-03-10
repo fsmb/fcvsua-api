@@ -32,20 +32,18 @@ namespace Fsmb.Api.FcvsUa.Client.Models
         public Name Name { get; set; }
 
         /// <summary>Is FCVS Available for applicant</summary>
-        [Required]
         public bool isFcvsAvailable { get; set; }
 
         /// <summary>FCVS profile release date, if available</summary>
-        public string fcvsReleaseDate { get; set; }
+        public DateTime? fcvsReleaseDate { get; set; }
 
         /// <summary>Is UA Available for applicant</summary>
-        [Required]
         public bool isUaAvailable { get; set; }
 
         /// <summary>UA release date, if available</summary>
-        public string uaReleaseDate { get; set; }
+        public DateTime? uaReleaseDate { get; set; }
 
         /// <summary>Newer release date between FCVS and UA, if available</summary>
-        public string releaseDate { get; set; }
+        public DateTime? releaseDate { get; set; }
     }
 }

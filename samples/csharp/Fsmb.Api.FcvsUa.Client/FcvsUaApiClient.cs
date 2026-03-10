@@ -113,7 +113,7 @@ namespace Fsmb.Api.FcvsUa.Client
         /// <param name="toDate">End date for summary date range.</param>
         /// <param name="cancellationToken">Cancellation token.</param>
         /// <returns>Summary, if any</returns>
-        public virtual async Task<List<Summary>> GetSummaryByDateRangeAsync ( string fromDate, string toDate, CancellationToken cancellationToken = default )
+        public virtual async Task<List<Summary>> GetSummaryByDateRangeAsync ( DateTime fromDate, DateTime toDate, CancellationToken cancellationToken = default )
         {
             var url = GetResourceUrl(String.Join("/", "applicants", $"summary?fromDate={fromDate}&toDate={toDate}"));
 

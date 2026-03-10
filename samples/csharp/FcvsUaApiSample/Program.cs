@@ -64,7 +64,7 @@ class Program
     }
 
     // Get summary data by date range
-    private async Task GetSummaryByDateRangeAsync ( FcvsUaApiClient client, string fromDate, string toDate, CancellationToken cancellationToken )
+    private async Task GetSummaryByDateRangeAsync ( FcvsUaApiClient client, DateTime fromDate, DateTime toDate, CancellationToken cancellationToken )
     {
         //Call API
         Terminal.WriteDebug($"Getting summary data between '{fromDate}' and '{toDate}'");
@@ -179,7 +179,7 @@ class Program
         try
         {
             //Get the date range
-            var format = "yyyy-mm-dd";
+            var format = "yyyy-MM-dd";
             var fromDateStr = Terminal.ReadString("Start date yyyy-mm-dd (or ENTER to cancel)? ", allowEmptyStrings: true);
             if (String.IsNullOrEmpty(fromDateStr))
                 return;
@@ -194,11 +194,11 @@ class Program
                 return;
             if (!DateTime.TryParseExact(toDateStr, format, CultureInfo.InvariantCulture, DateTimeStyles.None, out var toDate))
             {
-                Terminal.WriteError("Invalid start date");
+                Terminal.WriteError("Invalid end date");
                 return;
             };
 
-            await GetSummaryByDateRangeAsync(client, fromDateStr, toDateStr, CancellationToken.None).ConfigureAwait(false);
+            await GetSummaryByDateRangeAsync(client, fromDate, toDate, CancellationToken.None).ConfigureAwait(false);
         } catch (Exception e)
         {
             e = e.Unwrap();
