@@ -61,10 +61,10 @@ Status code: 200
             "suffix": "Jr"
         },
         "isFcvsAvailable": true,
-        "fcvsReleaseDate": "2025-11-06T23:25:40.43Z",
+        "fcvsReleaseDateUtc": "2025-11-06T23:25:40.43Z",
         "isUaAvailable": true,
-        "uaReleaseDate": "2025-11-05T23:25:48.903Z",
-        "releaseDate": "2025-11-06T23:25:40.43Z"
+        "uaReleaseDateUtc": "2025-11-05T23:25:48.903Z",
+        "releaseDateUtc": "2025-11-06T23:25:40.43Z"
     },
     {
         "fid": "999999956",
@@ -75,9 +75,9 @@ Status code: 200
             "suffix": ""
         },
         "isFcvsAvailable": true,
-        "fcvsReleaseDate": "2025-10-23T22:25:40.99Z",
+        "fcvsReleaseDateUtc": "2025-10-23T22:25:40.99Z",
         "isUaAvailable": false,
-        "releaseDate": "2025-10-23T22:25:40.99Z"
+        "releaseDateUtc": "2025-10-23T22:25:40.99Z"
     }
     {
         "fid": "999999949",
@@ -88,9 +88,9 @@ Status code: 200
             "suffix": "Jr"
         },
         "isFcvsAvailable": true,
-        "fcvsReleaseDate": "2025-10-09T22:25:46.887Z",
+        "fcvsReleaseDateUtc": "2025-10-09T22:25:46.887Z",
         "isUaAvailable": false,
-        "releaseDate": "2025-10-09T22:25:46.887Z"
+        "releaseDateUtc": "2025-10-09T22:25:46.887Z"
     }
 ]
 ```
