@@ -1,6 +1,6 @@
 # Summary
 
-Applicant summary details. Release dates are in local time
+Applicant summary details. Release date/times are in UTC.
 
 | Name | Type | Required | Description |
 | - | - | - | - |
@@ -24,9 +24,9 @@ Applicant summary details. Release dates are in local time
         "suffix": ""
     },
     "isFcvsAvailable": true,
-    "fcvsReleaseDate": "2025-11-06T17:25:40.43",
+    "fcvsReleaseDate": "2025-11-06T23:25:40.43Z",
     "isUaAvailable": true,
-    "uaReleaseDate": "2025-11-05T17:25:48.903",
-    "releaseDate": "2025-11-06T17:25:40.43"
+    "uaReleaseDate": "2025-11-05T23:25:48.903Z",
+    "releaseDate": "2025-11-06T23:25:40.43Z"
 }
 ```
