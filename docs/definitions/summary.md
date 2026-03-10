@@ -7,26 +7,26 @@ Applicant summary details. Release date/times are in UTC.
 | fid | string (format: digits, len: 9) | Yes | FID of the physician. |
 | name | [Name](name.md) | Yes | Name of the physician. |
 | isFcvsAvailable | boolean | Yes | Indicates if the physician has FCVS. |
-| fcvsReleaseDate | string (datetime) | No | Date/time of FCVS profile released, if available. |
+| fcvsReleaseDateUtc | string (datetime) | No | Date/time of FCVS profile released, if available. |
 | isUaAvailable | boolean | Yes | Indicates if the physician has UA. |
-| uaReleaseDate | string (datetime) | No | Date/time of UA released, if available. |
-| releaseDate | string (datetime) | No | Date/time of newer release, between FCVS/UA, if available. |
+| uaReleaseDateUtc | string (datetime) | No | Date/time of UA released, if available. |
+| releaseDateUtc | string (datetime) | No | Date/time of newer release, between FCVS/UA, if available. |
 
 ## Example
 
 ```json
 {
-    "fid": "209856897",
+    "fid": "999999915",
     "name": {
-        "firstName": "Fedon",
-        "middleName": "",
-        "lastName": "Mavromatis",
-        "suffix": ""
+        "firstName": "Philip",
+        "middleName": "James",
+        "lastName": "Testman",
+        "suffix": "Jr"
     },
     "isFcvsAvailable": true,
-    "fcvsReleaseDate": "2025-11-06T23:25:40.43Z",
+    "fcvsReleaseDateUtc": "2025-11-06T23:25:40.43Z",
     "isUaAvailable": true,
-    "uaReleaseDate": "2025-11-05T23:25:48.903Z",
-    "releaseDate": "2025-11-06T23:25:40.43Z"
+    "uaReleaseDateUtc": "2025-11-05T23:25:48.903Z",
+    "releaseDateUtc": "2025-11-06T23:25:40.43Z"
 }
 ```
