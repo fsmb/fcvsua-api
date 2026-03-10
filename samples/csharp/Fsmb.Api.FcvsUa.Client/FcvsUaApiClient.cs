@@ -115,7 +115,7 @@ namespace Fsmb.Api.FcvsUa.Client
         /// <returns>Summary, if any</returns>
         public virtual async Task<List<Summary>> GetSummaryByDateRangeAsync ( DateTime fromDate, DateTime toDate, CancellationToken cancellationToken = default )
         {
-            var url = GetResourceUrl(String.Join("/", "applicants", $"summary?fromDate={fromDate}&toDate={toDate}"));
+            var url = GetResourceUrl(String.Join("/", "applicants", $"summary?fromDate={fromDate:yyyy-MM-dd}&toDate={toDate:yyyy-MM-dd}"));
 
             var request = new HttpRequestMessage(HttpMethod.Get, url);
             await PrepareRequestAsync(request, cancellationToken).ConfigureAwait(false);
