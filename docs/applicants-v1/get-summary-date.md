@@ -50,8 +50,6 @@ GET {baseUrl}/v1/me/applicants/summary?fromDate=2025-10-01&toDate=2025-12-31
 
 Status code: 200
 
-*Note: Output is elided. Refer to [Summary](/docs/definitions/summary.md) for a complete example.*
-
 ```json
 [
     {
@@ -80,8 +78,20 @@ Status code: 200
         "fcvsReleaseDate": "2025-10-23T22:25:40.99Z",
         "isUaAvailable": false,
         "releaseDate": "2025-10-23T22:25:40.99Z"
-    },
-    ...
+    }
+    {
+        "fid": "201341542",
+        "name": {
+            "firstName": "Mamoun Ahmed El-Murtada",
+            "middleName": "",
+            "lastName": "Elmamoun",
+            "suffix": ""
+        },
+        "isFcvsAvailable": true,
+        "fcvsReleaseDate": "2025-10-09T22:25:46.887Z",
+        "isUaAvailable": false,
+        "releaseDate": "2025-10-09T22:25:46.887Z"
+    }
 ]
 ```
 
