@@ -20,6 +20,7 @@ For more information or to begin using this API, please contact FSMB [here](mail
 
 | Date | Release Notes |
 | - | - |
+| 2026 | Added Get Summary by Date Range endpoint. |
 | 2024 | Initial version |
 
 ## Security
